@@ -1848,8 +1848,20 @@ a{
     padding: 10px;
 }
 
-.lastResult {
-  padding: 3px;
+.result {
+    width: 4em;
+    height: 4em;
+    line-height:8em;
+    border-radius: 50%;
+    display: flex; /* or inline-flex */
+    align-items: center;
+    justify-content: center;text-align: center;
+}
+
+.guessField {
+    width: 3em;
+    background: #fefefe;
+    color: #000
 }
 
 @media (prefers-color-scheme: dark) {
@@ -1857,6 +1869,12 @@ a{
         background-color: #2b2b2b;
         color: #f2f2f2;
     }
+    .guessField {
+        width: 3em;
+        background: #666;
+        color: #f2f2f2;
+    }
+
     
     
 }

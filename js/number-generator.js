@@ -1,54 +1,59 @@
   let randomNumber = Math.floor(Math.random() * 10) + 1;
+  let lot1 = Math.floor(Math.random() * 70) + 1;
+  let lot2 = Math.floor(Math.random() * 70) + 1;
+  let lot3 = Math.floor(Math.random() * 70) + 1;
+  let lot4 = Math.floor(Math.random() * 70) + 1;
+  let lot5 = Math.floor(Math.random() * 70) + 1;
+  let pBall = Math.floor(Math.random() * 25) + 1;
   const guesses = document.querySelector('.guesses');
-  const lastResult = document.querySelector('.lastResult');
+  const res1 = document.querySelector('.result#res1');
+  const res2 = document.querySelector('.result#res2');
+  const res3 = document.querySelector('.result#res3');
+  const res4 = document.querySelector('.result#res4');
+  const res5 = document.querySelector('.result#res5');
+  const res6 = document.querySelector('.result#res6');
   const lowOrHi = document.querySelector('.lowOrHi');
   const guessSubmit = document.querySelector('.guessSubmit');
-  const guessField = document.querySelector('.guessField');
+//  const guessField = document.querySelector(".guessField");
+  const num1 = document.querySelector("input[name='num1']");
+  const num2 = document.querySelector("input[name='num2']");
+  const num3 = document.querySelector("input[name='num3']");
+  const num4 = document.querySelector("input[name='num4']");
+  const num5 = document.querySelector("input[name='num5']");
+  const num6 = document.querySelector("input[name='num6']");
   let guessCount = 1;
   let resetButton;
 
   function checkGuess() {
-    let userGuess = Number(guessField.value);
-    if (guessCount === 1) {
-      guesses.textContent = 'Previous guesses: ';
-    }
+//    let userGuess = Number(guessField.value);
+    let guess1 = Number(num1.value)
+    let guess2 = Number(num2.value)
+    let guess3 = Number(num3.value)
+    let guess4 = Number(num4.value)
+    let guess5 = Number(num5.value)
+    let guess6 = Number(num6.value)
 
-    guesses.textContent += userGuess + ' ';
+    res1.textContent = lot1;
+    res2.textContent = lot2;
+    res3.textContent = lot3;
+    res4.textContent = lot4;
+    res5.textContent = lot5;
+    res6.textContent = pBall;
 
-    if (userGuess === randomNumber) {
-      lastResult.textContent = 'Congratulations! You got it right!';
-      lastResult.className = 'w3-green w3-center';
-      lowOrHi.textContent = '';
-      setGameOver();
-    } else if (guessCount === 10) {
-      lastResult.textContent = '!!!GAME OVER!!!';
-      lowOrHi.textContent = '';
-      setGameOver();
-    } else {
-      lastResult.textContent = 'Wrong!';
-      lastResult.className = 'w3-red';
-//      lastResult.style.width = '50%';
-      if(userGuess < randomNumber) {
-        lowOrHi.textContent = 'Try Again!' ;
-      } else if(userGuess > randomNumber) {
-        lowOrHi.textContent = 'Try Again!';
-      }
-    }
-
-    guessCount++;
-    guessField.value = '';
-    guessField.focus();
+//    Check each number
+    
+    setGameOver();
   }
 
   guessSubmit.addEventListener('click', checkGuess);
 
   function setGameOver() {
-    guessField.disabled = true;
+//    guessField.disabled = true;
     guessSubmit.disabled = true;
     resetButton = document.createElement('button');
     resetButton.className = 'w3-button w3-black w3-text-white'
-    resetButton.textContent = 'Start new game';
-    document.getElementById("game").appendChild(resetButton);
+    resetButton.textContent = 'Reset';
+    document.getElementById("reset").appendChild(resetButton);
     resetButton.addEventListener('click', resetGame);
   }
 
@@ -60,10 +65,14 @@
     }
 
     resetButton.parentNode.removeChild(resetButton);
-    guessField.disabled = false;
+    num1.disabled = false;
     guessSubmit.disabled = false;
-    guessField.value = '';
-    guessField.focus();
-    lastResult.style.backgroundColor = 'white';
+    num1.value = '';
+    num2.value = '';
+    num3.value = '';
+    num4.value = '';
+    num5.value = '';
+    num6.value = '';
+    num1.focus();
     randomNumber = Math.floor(Math.random() * 100) + 1;
   }

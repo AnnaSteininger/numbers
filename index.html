@@ -13,21 +13,34 @@
   <body>
     <section class="w3-container w3-padding-64 content" id="body">
         <div class="w3-content w3-center" id="game">
-            <h1>Number guessing game</h1>
+            <h1>Lottery Simulation</h1>
 
-            <p>We have selected a random number between 1 and 10.</p>
-    
-            <p>1  2  3  4  5  6  7  8  9  10</p>
+            <p>Pick 5 numbers from 1&ndash;70 and a PowerBall between 1&ndash;25</p>
 
-            <div class="form">
-              <label for="guessField">Enter a guess: </label><input type="text" id="guessField" class="guessField w3-sand">
-              <input type="submit" value="Submit guess" class="w3-button w3-black guessSubmit">
+            <div class="form w3-large">
+                <label for="guessField">Pick 5 + Powerball: </label><br/>
+                <input type="number" class="guessField" id="num1" name="num1" required min="1" max="2">
+                <input type="number" class="guessField" id="num2" name="num2" required min="1" max="70">
+                <input type="number" class="guessField" id="num3" name="num3" required min="1" max="70">
+                <input type="number" class="guessField" id="num4" name="num4" required min="1" max="70">
+                <input type="number" class="guessField" id="num5" name="num5" required min="1" max="70">
+                <input type="number" class="guessField w3-red" id="powerball" name="num6" required min="1" max="25">
+                <br/><br/>
+                <input type="submit" value="Submit guess" class="w3-button w3-black guessSubmit">
             </div>
 
             <div class="resultParas">
-              <p class="guesses"></p>
-              <p class="lastResult"></p>
-              <p class="lowOrHi"></p>
+              <h3 class="">Lottery Drawing: </h3>
+              <div class="w3-row w3-large">
+                  <div class="result w3-card w3-col m2" id="res1"></div>
+                  <div class="result w3-card w3-col m2" id="res2"></div>
+                  <div class="result w3-card w3-col m2" id="res3"></div>
+                  <div class="result w3-card w3-col m2" id="res4"></div>
+                  <div class="result w3-card w3-col m2" id="res5"></div>
+                  <div class="result w3-card w3-col m2 w3-red" id="res6"></div>
+              </div>
+              <br/>
+              <div id="reset"></span>
             </div>
     
             <script src="js/number-generator.js" async></script>
